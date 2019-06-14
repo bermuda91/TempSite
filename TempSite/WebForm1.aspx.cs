@@ -21,7 +21,7 @@ namespace TempSite
             double temperature = Convert.ToDouble(TxtTemperature.Text);
             FahrenheitLabel.Text = wsConvert.CensiusToFahrenheit(temperature).ToString();
             CelsiusLabel.Text = wsConvert.FahrenheitToCensius(temperature).ToString();
-
+             
         }
     }
 }
