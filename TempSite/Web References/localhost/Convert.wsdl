@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FahrenheitToCensius">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Fahrenheit" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FahrenheitToCensiusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FahrenheitToCensiusResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CensiusToFahrenheit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Censius" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CensiusToFahrenheitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CensiusToFahrenheitResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="FahrenheitToCensiusSoapIn">
+    <wsdl:part name="parameters" element="tns:FahrenheitToCensius" />
+  </wsdl:message>
+  <wsdl:message name="FahrenheitToCensiusSoapOut">
+    <wsdl:part name="parameters" element="tns:FahrenheitToCensiusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CensiusToFahrenheitSoapIn">
+    <wsdl:part name="parameters" element="tns:CensiusToFahrenheit" />
+  </wsdl:message>
+  <wsdl:message name="CensiusToFahrenheitSoapOut">
+    <wsdl:part name="parameters" element="tns:CensiusToFahrenheitResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConvertSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitToCensius">
+      <wsdl:input message="tns:FahrenheitToCensiusSoapIn" />
+      <wsdl:output message="tns:FahrenheitToCensiusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CensiusToFahrenheit">
+      <wsdl:input message="tns:CensiusToFahrenheitSoapIn" />
+      <wsdl:output message="tns:CensiusToFahrenheitSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConvertSoap" type="tns:ConvertSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitToCensius">
+      <soap:operation soapAction="http://tempuri.org/FahrenheitToCensius" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CensiusToFahrenheit">
+      <soap:operation soapAction="http://tempuri.org/CensiusToFahrenheit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertSoap12" type="tns:ConvertSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitToCensius">
+      <soap12:operation soapAction="http://tempuri.org/FahrenheitToCensius" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CensiusToFahrenheit">
+      <soap12:operation soapAction="http://tempuri.org/CensiusToFahrenheit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Convert">
+    <wsdl:port name="ConvertSoap" binding="tns:ConvertSoap">
+      <soap:address location="http://localhost:58091/Convert.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConvertSoap12" binding="tns:ConvertSoap12">
+      <soap12:address location="http://localhost:58091/Convert.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
