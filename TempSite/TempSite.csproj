@@ -74,10 +74,10 @@
     <None Include="Web References\localhost\Convert.disco" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
-    <Content Include="Web References\localhost\Reference.map">
+    <None Include="Web References\localhost\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

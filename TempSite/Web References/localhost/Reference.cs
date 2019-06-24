@@ -29,11 +29,13 @@ namespace TempSite.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="ConvertSoap", Namespace="http://tempuri.org/")]
     public partial class Convert : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
+        private System.Threading.SendOrPostCallback YaziYazOperationCompleted;
         
-        private System.Threading.SendOrPostCallback FahrenheitToCensiusOperationCompleted;
+        private System.Threading.SendOrPostCallback FahrenheitToCelsiusOperationCompleted;
         
-        private System.Threading.SendOrPostCallback CensiusToFahrenheitOperationCompleted;
+        private System.Threading.SendOrPostCallback CelsiusToFahrenheitOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SayiUretOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -74,96 +76,126 @@ namespace TempSite.localhost {
         }
         
         /// <remarks/>
-        public event HelloWorldCompletedEventHandler HelloWorldCompleted;
+        public event YaziYazCompletedEventHandler YaziYazCompleted;
         
         /// <remarks/>
-        public event FahrenheitToCensiusCompletedEventHandler FahrenheitToCensiusCompleted;
+        public event FahrenheitToCelsiusCompletedEventHandler FahrenheitToCelsiusCompleted;
         
         /// <remarks/>
-        public event CensiusToFahrenheitCompletedEventHandler CensiusToFahrenheitCompleted;
+        public event CelsiusToFahrenheitCompletedEventHandler CelsiusToFahrenheitCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string HelloWorld() {
-            object[] results = this.Invoke("HelloWorld", new object[0]);
+        public event SayiUretCompletedEventHandler SayiUretCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/YaziYaz", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string YaziYaz() {
+            object[] results = this.Invoke("YaziYaz", new object[0]);
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void HelloWorldAsync() {
-            this.HelloWorldAsync(null);
+        public void YaziYazAsync() {
+            this.YaziYazAsync(null);
         }
         
         /// <remarks/>
-        public void HelloWorldAsync(object userState) {
-            if ((this.HelloWorldOperationCompleted == null)) {
-                this.HelloWorldOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHelloWorldOperationCompleted);
+        public void YaziYazAsync(object userState) {
+            if ((this.YaziYazOperationCompleted == null)) {
+                this.YaziYazOperationCompleted = new System.Threading.SendOrPostCallback(this.OnYaziYazOperationCompleted);
             }
-            this.InvokeAsync("HelloWorld", new object[0], this.HelloWorldOperationCompleted, userState);
+            this.InvokeAsync("YaziYaz", new object[0], this.YaziYazOperationCompleted, userState);
         }
         
-        private void OnHelloWorldOperationCompleted(object arg) {
-            if ((this.HelloWorldCompleted != null)) {
+        private void OnYaziYazOperationCompleted(object arg) {
+            if ((this.YaziYazCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.YaziYazCompleted(this, new YaziYazCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FahrenheitToCensius", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public double FahrenheitToCensius(double Fahrenheit) {
-            object[] results = this.Invoke("FahrenheitToCensius", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FahrenheitToCelsius", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public double FahrenheitToCelsius(double Fahrenheit) {
+            object[] results = this.Invoke("FahrenheitToCelsius", new object[] {
                         Fahrenheit});
             return ((double)(results[0]));
         }
         
         /// <remarks/>
-        public void FahrenheitToCensiusAsync(double Fahrenheit) {
-            this.FahrenheitToCensiusAsync(Fahrenheit, null);
+        public void FahrenheitToCelsiusAsync(double Fahrenheit) {
+            this.FahrenheitToCelsiusAsync(Fahrenheit, null);
         }
         
         /// <remarks/>
-        public void FahrenheitToCensiusAsync(double Fahrenheit, object userState) {
-            if ((this.FahrenheitToCensiusOperationCompleted == null)) {
-                this.FahrenheitToCensiusOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFahrenheitToCensiusOperationCompleted);
+        public void FahrenheitToCelsiusAsync(double Fahrenheit, object userState) {
+            if ((this.FahrenheitToCelsiusOperationCompleted == null)) {
+                this.FahrenheitToCelsiusOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFahrenheitToCelsiusOperationCompleted);
             }
-            this.InvokeAsync("FahrenheitToCensius", new object[] {
-                        Fahrenheit}, this.FahrenheitToCensiusOperationCompleted, userState);
+            this.InvokeAsync("FahrenheitToCelsius", new object[] {
+                        Fahrenheit}, this.FahrenheitToCelsiusOperationCompleted, userState);
         }
         
-        private void OnFahrenheitToCensiusOperationCompleted(object arg) {
-            if ((this.FahrenheitToCensiusCompleted != null)) {
+        private void OnFahrenheitToCelsiusOperationCompleted(object arg) {
+            if ((this.FahrenheitToCelsiusCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FahrenheitToCensiusCompleted(this, new FahrenheitToCensiusCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.FahrenheitToCelsiusCompleted(this, new FahrenheitToCelsiusCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CensiusToFahrenheit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public double CensiusToFahrenheit(double Censius) {
-            object[] results = this.Invoke("CensiusToFahrenheit", new object[] {
-                        Censius});
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CelsiusToFahrenheit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public double CelsiusToFahrenheit(double Celsius) {
+            object[] results = this.Invoke("CelsiusToFahrenheit", new object[] {
+                        Celsius});
             return ((double)(results[0]));
         }
         
         /// <remarks/>
-        public void CensiusToFahrenheitAsync(double Censius) {
-            this.CensiusToFahrenheitAsync(Censius, null);
+        public void CelsiusToFahrenheitAsync(double Celsius) {
+            this.CelsiusToFahrenheitAsync(Celsius, null);
         }
         
         /// <remarks/>
-        public void CensiusToFahrenheitAsync(double Censius, object userState) {
-            if ((this.CensiusToFahrenheitOperationCompleted == null)) {
-                this.CensiusToFahrenheitOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCensiusToFahrenheitOperationCompleted);
+        public void CelsiusToFahrenheitAsync(double Celsius, object userState) {
+            if ((this.CelsiusToFahrenheitOperationCompleted == null)) {
+                this.CelsiusToFahrenheitOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCelsiusToFahrenheitOperationCompleted);
             }
-            this.InvokeAsync("CensiusToFahrenheit", new object[] {
-                        Censius}, this.CensiusToFahrenheitOperationCompleted, userState);
+            this.InvokeAsync("CelsiusToFahrenheit", new object[] {
+                        Celsius}, this.CelsiusToFahrenheitOperationCompleted, userState);
         }
         
-        private void OnCensiusToFahrenheitOperationCompleted(object arg) {
-            if ((this.CensiusToFahrenheitCompleted != null)) {
+        private void OnCelsiusToFahrenheitOperationCompleted(object arg) {
+            if ((this.CelsiusToFahrenheitCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.CensiusToFahrenheitCompleted(this, new CensiusToFahrenheitCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.CelsiusToFahrenheitCompleted(this, new CelsiusToFahrenheitCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SayiUret", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int SayiUret() {
+            object[] results = this.Invoke("SayiUret", new object[0]);
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SayiUretAsync() {
+            this.SayiUretAsync(null);
+        }
+        
+        /// <remarks/>
+        public void SayiUretAsync(object userState) {
+            if ((this.SayiUretOperationCompleted == null)) {
+                this.SayiUretOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSayiUretOperationCompleted);
+            }
+            this.InvokeAsync("SayiUret", new object[0], this.SayiUretOperationCompleted, userState);
+        }
+        
+        private void OnSayiUretOperationCompleted(object arg) {
+            if ((this.SayiUretCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SayiUretCompleted(this, new SayiUretCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -188,17 +220,17 @@ namespace TempSite.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void HelloWorldCompletedEventHandler(object sender, HelloWorldCompletedEventArgs e);
+    public delegate void YaziYazCompletedEventHandler(object sender, YaziYazCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class YaziYazCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal HelloWorldCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal YaziYazCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -214,17 +246,17 @@ namespace TempSite.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void FahrenheitToCensiusCompletedEventHandler(object sender, FahrenheitToCensiusCompletedEventArgs e);
+    public delegate void FahrenheitToCelsiusCompletedEventHandler(object sender, FahrenheitToCelsiusCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FahrenheitToCensiusCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class FahrenheitToCelsiusCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal FahrenheitToCensiusCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal FahrenheitToCelsiusCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -240,17 +272,17 @@ namespace TempSite.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
-    public delegate void CensiusToFahrenheitCompletedEventHandler(object sender, CensiusToFahrenheitCompletedEventArgs e);
+    public delegate void CelsiusToFahrenheitCompletedEventHandler(object sender, CelsiusToFahrenheitCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class CensiusToFahrenheitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class CelsiusToFahrenheitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal CensiusToFahrenheitCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal CelsiusToFahrenheitCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -260,6 +292,32 @@ namespace TempSite.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((double)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    public delegate void SayiUretCompletedEventHandler(object sender, SayiUretCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3062.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SayiUretCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SayiUretCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

@@ -19,8 +19,10 @@ namespace TempSite
             localhost.Convert wsConvert = new localhost.Convert();
 
             double temperature = Convert.ToDouble(TxtTemperature.Text);
-            FahrenheitLabel.Text = wsConvert.CensiusToFahrenheit(temperature).ToString();
-            CelsiusLabel.Text = wsConvert.FahrenheitToCensius(temperature).ToString();
+
+            FahrenheitLabel.Text = wsConvert.CelsiusToFahrenheit(temperature).ToString();
+            CelsiusLabel.Text = wsConvert.FahrenheitToCelsius(temperature).ToString();
+            
                
         }
     }
